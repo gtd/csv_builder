@@ -11,6 +11,12 @@ module ActionView # :nodoc:
     #   # Second row
     #   csv << [ 'another cell value', 'and another' ]
     #   # etc...
+    #
+    # You can set the default filename for that a browser will use for 'save as' by
+    # setting <tt>@filename</tt> instance variable in your controller's action method
+    # e.g.
+    #
+    #   @filename = 'report.csv'
 
     class CsvBuilder < TemplateHandler
       include Compilable
