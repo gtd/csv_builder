@@ -36,9 +36,9 @@ e.g.
 
 You can also set the input encoding and output encoding by setting
 <tt>@input_encoding</tt> and <tt>@output_encoding</tt> instance variables.
-These default to 'utf-8' and 'latin1' respectively. e.g.
+These default to 'UTF8' and 'LATIN1' respectively. e.g.
 
-  @output_encoding = 'utf-8'
+  @output_encoding = 'UTF8'
 
 You can also attach a csv file to mail sent out by your application by
 including a snippet like the following in your mailer method
