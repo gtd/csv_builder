@@ -21,9 +21,9 @@ module ActionView # :nodoc:
     #
     # You can also set the input encoding and output encoding by setting
     # <tt>@input_encoding</tt> and <tt>@output_encoding</tt> instance variables.
-    # These default to 'UTF8' and 'LATIN1' respectively. e.g.
+    # These default to 'UTF-8' and 'LATIN1' respectively. e.g.
     #
-    #   @output_encoding = 'UTF8'
+    #   @output_encoding = 'UTF-8'
 
     class CsvBuilder < TemplateHandler
 
@@ -49,14 +49,18 @@ module ActionView # :nodoc:
 
           # Transliterate into the required encoding if necessary
           # TODO: make defaults configurable
-          @input_encoding ||= 'UTF8'
+          @input_encoding ||= 'UTF-8'
           @output_encoding ||= 'LATIN1'
 
           if @input_encoding == @output_encoding
             result
           else
-            # TODO: do some checking to make sure iconv works correctly in current environment
-            # See ActiveSupport::Inflector#transliterate definition for details
+            # TODO: do some checking to make sure iconv works correctly in
+            # current environment. See ActiveSupport::Inflector#transliterate
+            # definition for details
+            #
+            # Not using the more standard //IGNORE//TRANLIST because it raises
+            # Iconv::IllegalSequence for some inputs
             c = Iconv.new("\#{@output_encoding}//TRANSLIT//IGNORE", @input_encoding)
             c.iconv(result)
           end
