@@ -26,12 +26,7 @@ module ActionView # :nodoc:
     #   @output_encoding = 'UTF-8'
 
     class CsvBuilder < TemplateHandler
-
       include Compilable
-
-      def self.line_offset
-        9
-      end
 
       def compile(template)
         <<-EOV

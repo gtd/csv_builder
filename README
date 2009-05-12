@@ -6,7 +6,7 @@ dynamically generated CSV files from your application.
 
 == Requirements
 
-CSV Builder requires Rails v2.1.
+CSV Builder requires Rails v2.1 or higher.
 
 It also depends upon the FasterCSV gem http://fastercsv.rubyforge.org,
 which you can install with
@@ -45,6 +45,13 @@ generator. For example:
 
   @csv_options = { :force_quotes => true, :col_sep => ';' }
 
+You can respond with csv in your controller as well:
+
+  respond_to do |format|
+    format.html
+    format.csv # make sure you have action_name.csv.csvbuilder template in place
+  end 
+
 You can also attach a csv file to mail sent out by your application by
 including a snippet like the following in your mailer method
 
@@ -54,4 +61,4 @@ including a snippet like the following in your mailer method
   end
 
 
-Copyright (c) 2008 Econsultancy.com, released under the MIT license
+Copyright (c) 2008 Econsultancy.com and 2009 Vidmantas Kabošis, released under the MIT license
