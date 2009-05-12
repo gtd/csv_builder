@@ -13,6 +13,7 @@ which you can install with
 
   $ sudo gem install fastercsv
 	
+Encoding conversions are done with Iconv, so make sure you have it on your development/production machine.
 
 == Example
 
