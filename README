@@ -34,11 +34,16 @@ e.g.
 
   @filename = 'report.csv'
 
-You can also set the input encoding and output encoding by setting
+You can set the input encoding and output encoding by setting
 <tt>@input_encoding</tt> and <tt>@output_encoding</tt> instance variables.
 These default to 'UTF-8' and 'LATIN1' respectively. e.g.
 
   @output_encoding = 'UTF-8'
+
+You can set <tt>@csv_options</tt> instance variable to define options for FasterCSV 
+generator. For example: 
+
+  @csv_options = { :force_quotes => true, :col_sep => ';' }
 
 You can also attach a csv file to mail sent out by your application by
 including a snippet like the following in your mailer method
