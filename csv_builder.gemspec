@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name    = 'csv_builder'
-  s.version = '0.1'
+  s.version = '0.1.1'
   s.date    = '2009-05-26'
   
   s.summary = "CSV template Rails plugin"
