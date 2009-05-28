@@ -13,7 +13,8 @@ which you can install with
 
   $ sudo gem install fastercsv
 	
-Encoding conversions are done with Iconv, so make sure you have it on your development/production machine.
+Encoding conversions are done with Iconv, so make sure you have it on your
+development/production machine.
 
 == Example
 
@@ -35,11 +36,16 @@ e.g.
 
   @filename = 'report.csv'
 
-You can also set the input encoding and output encoding by setting
+You can set the input encoding and output encoding by setting
 <tt>@input_encoding</tt> and <tt>@output_encoding</tt> instance variables.
 These default to 'UTF-8' and 'LATIN1' respectively. e.g.
 
   @output_encoding = 'UTF-8'
+
+You can set <tt>@csv_options</tt> instance variable to define options for
+FasterCSV generator. For example:
+
+  @csv_options = { :force_quotes => true, :col_sep => ';' }
 
 You can also attach a csv file to mail sent out by your application by
 including a snippet like the following in your mailer method
@@ -50,4 +56,5 @@ including a snippet like the following in your mailer method
   end
 
 
-Copyright (c) 2008 Econsultancy.com, released under the MIT license
+Copyright (c) 2008 Econsultancy.com and 2009 Vidmantas Kabošis, released under
+the MIT license.

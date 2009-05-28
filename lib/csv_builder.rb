@@ -43,7 +43,7 @@ module ActionView # :nodoc:
             controller.response.headers['Content-Disposition'] = "attachment; filename=\#{@filename}"
           end
 
-          result = FasterCSV.generate do |csv|
+          result = FasterCSV.generate(@csv_options || {}) do |csv|
             #{template.source}
           end
 
