@@ -12,9 +12,29 @@ It also depends upon the FasterCSV gem http://fastercsv.rubyforge.org,
 which you can install with
 
   $ sudo gem install fastercsv
-	
+
 Encoding conversions are done with Iconv, so make sure you have it on your
 development/production machine.
+
+== Install
+
+=== Install as gem (recommended)
+
+Install as a gem:
+
+  $ sudo gem install mreinsch-csv_builder
+
+Then add the gem dependency in your config:
+
+  # config/environment.rb
+  config.gem "mreinsch-csv_builder", :source => "http://gems.github.com", :lib => "csv_builder"
+
+=== Install as plugin
+
+To install as a plugin, use:
+
+  $ ./script/plugin install git://github.com/mreinsch/csv_builder.git
+
 
 == Example
 
