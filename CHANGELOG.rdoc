@@ -1,8 +1,9 @@
-== 1.1.3 release 2009-06-27
+== 1.1.4 release 2009-07-27
 
-* Merged some patches, created this changelog (Michael Reinsch)
+* Merged some patches:
   * Added gem spec (Jan De Poorter)
   * Set the correct response headers to work with IE, made the existing ones a little more robust (Jose Fernandez)
+* Created changelog, updated docs (Michael Reinsch)
 
 == 1.0 released 2008
 
