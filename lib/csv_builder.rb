@@ -24,9 +24,7 @@ module ActionView # :nodoc:
     # These default to 'UTF-8' and 'LATIN1' respectively. e.g.
     #
     #   @output_encoding = 'UTF-8'
-
     class CsvBuilder < TemplateHandler
-
       include Compilable
 
       def self.line_offset
@@ -36,42 +34,22 @@ module ActionView # :nodoc:
       def compile(template)
         <<-EOV
         begin
-
           unless defined?(ActionMailer) && defined?(ActionMailer::Base) && controller.is_a?(ActionMailer::Base)
             @filename ||= "\#{controller.action_name}.csv"
             controller.response.headers["Content-Type"] ||= 'text/csv'
             controller.response.headers['Content-Disposition'] = "attachment; filename=\#{@filename}"
           end
 
-          result = FasterCSV.generate(@csv_options || {}) do |csv|
+          FasterCSV.generate do |faster_csv|
+            csv = TransliteratingFilter.new(faster_csv)
             #{template.source}
           end
-
-          # Transliterate into the required encoding if necessary
-          # TODO: make defaults configurable
-          @input_encoding ||= 'UTF-8'
-          @output_encoding ||= 'LATIN1'
-
-          if @input_encoding == @output_encoding
-            result
-          else
-            # TODO: do some checking to make sure iconv works correctly in
-            # current environment. See ActiveSupport::Inflector#transliterate
-            # definition for details
-            #
-            # Not using the more standard //IGNORE//TRANLIST because it raises
-            # Iconv::IllegalSequence for some inputs
-            c = Iconv.new("\#{@output_encoding}//TRANSLIT//IGNORE", @input_encoding)
-            c.iconv(result)
-          end
-
         rescue Exception => e
           RAILS_DEFAULT_LOGGER.warn("Exception \#{e} \#{e.message} with class \#{e.class.name} thrown when rendering CSV")
           raise e
         end
         EOV
       end
-
     end
   end
 end
