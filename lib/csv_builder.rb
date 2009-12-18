@@ -34,6 +34,11 @@ module ActionView # :nodoc:
       def compile(template)
         <<-EOV
         begin
+          output = FasterCSV.generate do |faster_csv|
+            csv = TransliteratingFilter.new(faster_csv)
+            #{template.source}
+          end
+
           unless defined?(ActionMailer) && defined?(ActionMailer::Base) && controller.is_a?(ActionMailer::Base)
             @filename ||= "\#{controller.action_name}.csv"
             if controller.request.env['HTTP_USER_AGENT'] =~ /msie/i
@@ -49,10 +54,7 @@ module ActionView # :nodoc:
             end
           end
 
-          FasterCSV.generate do |faster_csv|
-            csv = TransliteratingFilter.new(faster_csv)
-            #{template.source}
-          end
+          output
         rescue Exception => e
           RAILS_DEFAULT_LOGGER.warn("Exception \#{e} \#{e.message} with class \#{e.class.name} thrown when rendering CSV")
           raise e
