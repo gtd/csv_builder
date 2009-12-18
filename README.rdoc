@@ -22,18 +22,12 @@ development/production machine.
 
 Install as a gem:
 
-  $ sudo gem install mreinsch-csv_builder
+  $ gem install csv_builder
 
 Then add the gem dependency in your config:
 
   # config/environment.rb
-  config.gem "mreinsch-csv_builder", :source => "http://gems.github.com", :lib => "csv_builder"
-
-=== Install as plugin
-
-To install as a plugin, use:
-
-  $ ./script/plugin install git://github.com/mreinsch/csv_builder.git
+  config.gem "csv_builder"
 
 
 == Example
