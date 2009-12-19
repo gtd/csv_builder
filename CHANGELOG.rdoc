@@ -1,3 +1,8 @@
+== 1.1.6 release 2009-12-18
+
+* Generate csv before setting headers so that errors are displayed in-browser instead of downloaded (Gabe da Silveira)
+* Tweak README for gemcutter download. (Gabe da Silveira)
+
 == 1.1.5 release 2009-12-18
 
 * Do transliteration before exporting to CSV, not after (Tom Stuart)
