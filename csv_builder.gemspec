@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name    = 'csv_builder'
-  s.version = '0.1.6'
-  s.date    = '2009-12-18'
+  s.version = '0.1.7'
+  s.date    = '2009-12-29'
 
   s.summary = "CSV template Rails plugin"
   s.description = "CSV template Rails plugin"
@@ -16,5 +16,5 @@ Gem::Specification.new do |s|
   s.rdoc_options = ["--main", "README.rdoc"]
   s.extra_rdoc_files = %w(README.rdoc CHANGELOG.rdoc MIT-LICENSE)
 
-  s.files = %w(MIT-LICENSE README.rdoc CHANGELOG.rdoc Rakefile rails/init.rb lib/csv_builder.rb)
+  s.files = %w(MIT-LICENSE README.rdoc CHANGELOG.rdoc Rakefile rails/init.rb lib/csv_builder.rb lib/transliterating_filter.rb)
 end

@@ -1,3 +1,7 @@
+== 1.1.7 release 2009-12-27
+
+* Forgot to add transliterating filter to gem spec
+
 == 1.1.6 release 2009-12-18
 
 * Generate csv before setting headers so that errors are displayed in-browser instead of downloaded (Gabe da Silveira)
