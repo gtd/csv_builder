@@ -35,7 +35,7 @@ module ActionView # :nodoc:
         <<-EOV
         begin
           output = FasterCSV.generate do |faster_csv|
-            csv = TransliteratingFilter.new(faster_csv)
+            csv = TransliteratingFilter.new(faster_csv, @input_encoding || 'UTF-8', @output_encoding || 'LATIN1')
             #{template.source}
           end
 
