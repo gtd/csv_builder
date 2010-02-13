@@ -24,49 +24,43 @@ module ActionView # :nodoc:
     # These default to 'UTF-8' and 'LATIN1' respectively. e.g.
     #
     #   @output_encoding = 'UTF-8'
-
     class CsvBuilder < TemplateHandler
       include Compilable
+
+      def self.line_offset
+        9
+      end
 
       def compile(template)
         <<-EOV
         begin
-
-          unless defined?(ActionMailer) && defined?(ActionMailer::Base) && controller.is_a?(ActionMailer::Base)
-            @filename ||= "\#{controller.action_name}.csv"
-            controller.response.headers["Content-Type"] ||= 'text/csv'
-            controller.response.headers['Content-Disposition'] = "attachment; filename=\#{@filename}"
-          end
-
-          result = FasterCSV.generate(@csv_options) do |csv|
+          output = FasterCSV.generate(@csv_options) do |faster_csv|
+            csv = TransliteratingFilter.new(faster_csv, @input_encoding || 'UTF-8', @output_encoding || 'LATIN1')
             #{template.source}
           end
 
-          # Transliterate into the required encoding if necessary
-          # TODO: make defaults configurable
-          @input_encoding ||= 'UTF-8'
-          @output_encoding ||= 'LATIN1'
-
-          if @input_encoding == @output_encoding
-            result
-          else
-            # TODO: do some checking to make sure iconv works correctly in
-            # current environment. See ActiveSupport::Inflector#transliterate
-            # definition for details
-            #
-            # Not using the more standard //IGNORE//TRANLIST because it raises
-            # Iconv::IllegalSequence for some inputs
-            c = Iconv.new("\#{@output_encoding}//TRANSLIT//IGNORE", @input_encoding)
-            c.iconv(result)
+          unless defined?(ActionMailer) && defined?(ActionMailer::Base) && controller.is_a?(ActionMailer::Base)
+            @filename ||= "\#{controller.action_name}.csv"
+            if controller.request.env['HTTP_USER_AGENT'] =~ /msie/i
+              controller.response.headers['Pragma'] = 'public'
+              controller.response.headers["Content-type"] = "text/plain" 
+              controller.response.headers['Cache-Control'] = 'no-cache, must-revalidate, post-check=0, pre-check=0'
+              controller.response.headers['Content-Disposition'] = "attachment; filename=\#{@filename}"
+              controller.response.headers['Expires'] = "0" 
+            else
+              controller.response.headers["Content-Type"] ||= 'text/csv'
+              controller.response.headers["Content-Disposition"] = "attachment; filename=\#{@filename}"
+              controller.response.headers["Content-Transfer-Encoding"] = "binary"
+            end
           end
 
+          output
         rescue Exception => e
           RAILS_DEFAULT_LOGGER.warn("Exception \#{e} \#{e.message} with class \#{e.class.name} thrown when rendering CSV")
           raise e
         end
         EOV
       end
-
     end
   end
 end

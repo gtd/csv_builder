@@ -3,7 +3,6 @@
 The CSV Builder Rails plugin provides a simple templating system for serving
 dynamically generated CSV files from your application.
 
-
 == Requirements
 
 CSV Builder requires Rails v2.1 or higher.
@@ -12,8 +11,22 @@ It also depends upon the FasterCSV gem http://fastercsv.rubyforge.org,
 which you can install with
 
   $ sudo gem install fastercsv
-	
-Encoding conversions are done with Iconv, so make sure you have it on your development/production machine.
+
+Encoding conversions are done with Iconv, so make sure you have it on your
+development/production machine.
+
+== Install
+
+=== Install as gem (recommended)
+
+Install as a gem:
+
+  $ gem install csv_builder
+
+Then add the gem dependency in your config:
+
+  # config/environment.rb
+  config.gem "csv_builder"
 
 == Example
 
@@ -53,6 +66,7 @@ You can respond with csv in your controller as well:
     format.csv # make sure you have action_name.csv.csvbuilder template in place
   end 
 
+=======
 You can also attach a csv file to mail sent out by your application by
 including a snippet like the following in your mailer method
 

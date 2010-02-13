@@ -1,0 +1,25 @@
+== 1.1.7 release 2009-12-27
+
+* Forgot to add transliterating filter to gem spec
+
+== 1.1.6 release 2009-12-18
+
+* Generate csv before setting headers so that errors are displayed in-browser instead of downloaded (Gabe da Silveira)
+* Tweak README for gemcutter download. (Gabe da Silveira)
+
+== 1.1.5 release 2009-12-18
+
+* Do transliteration before exporting to CSV, not after (Tom Stuart)
+* Released on gemcutter (Gabe da Silveira)
+
+== 1.1.4 release 2009-07-27
+
+* Merged some patches:
+  * Added gem spec (Jan De Poorter)
+  * Set the correct response headers to work with IE, made the existing ones a little more robust (Jose Fernandez)
+* Created changelog, updated docs (Michael Reinsch)
+
+== 1.0 released 2008
+
+* The original csv_builder plugin, released by Econsultancy.com
+
