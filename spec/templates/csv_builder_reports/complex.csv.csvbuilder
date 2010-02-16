@@ -1,0 +1,3 @@
+@data.each do |row|
+  csv << row
+end

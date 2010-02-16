@@ -28,14 +28,10 @@ module ActionView # :nodoc:
     class CsvBuilder < TemplateHandler
       include Compilable
 
-      def self.line_offset
-        9
-      end
-
       def compile(template)
         <<-EOV
         begin
-          output = FasterCSV.generate(@csv_options = {}) do |faster_csv|
+          output = FasterCSV.generate(@csv_options || {}) do |faster_csv|
             csv = TransliteratingFilter.new(faster_csv, @input_encoding || 'UTF-8', @output_encoding || 'LATIN1')
             #{template.source}
           end
