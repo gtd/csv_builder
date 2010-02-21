@@ -1,3 +1,5 @@
+#encoding: utf-8
+
 class TransliteratingFilter
   # Transliterate into the required encoding if necessary
   def initialize(faster_csv, input_encoding = 'UTF-8', output_encoding = 'LATIN1')

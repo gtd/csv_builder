@@ -5,10 +5,9 @@ dynamically generated CSV files from your application.
 
 == Requirements
 
-CSV Builder requires Rails v2.1 or higher.
+CSV Builder requires Rails v2.1-2.3.x for Ruby 1.8.x or Rails v2.3.6 for Ruby 1.9.x
 
-It also depends upon the FasterCSV gem http://fastercsv.rubyforge.org,
-which you can install with
+If you run Ruby 1.8.6/7 it also depends upon the FasterCSV gem, which you can install with
 
   $ sudo gem install fastercsv
 
@@ -30,8 +29,7 @@ Then add the gem dependency in your config:
 
 == Example
 
-CSV template files are suffixed with '.csv.csvbuilder', for example
-'index.csv.csvbuilder'
+CSV template files are suffixed with '.csv.csvbuilder', for example 'index.csv.csvbuilder'
 
 Add rows to your CSV file in the template by pushing arrays of columns into the
 csv object.
@@ -73,6 +71,13 @@ including a snippet like the following in your mailer method
     attachment.body = render(:file => 'example/index.csv.csvbuilder')
     attachment.filename = 'report.csv'
   end
+
+
+== Troubleshooting
+
+There's a known bug of encoding error in Ruby 1.9 and Rails 2.3.5 
+For more details see https://rails.lighthouseapp.com/projects/8994/tickets/2188-i18n-fails-with-multibyte-strings-in-ruby-19-similar-to-2038
+This ticket is marked to be solved in Rails 2.3.6
 
 
 Copyright (c) 2008 Econsultancy.com and 2009 Vidmantas Kabošis, released under the MIT license

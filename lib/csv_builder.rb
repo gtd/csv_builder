@@ -1,4 +1,13 @@
-require 'fastercsv'
+# encoding: utf-8
+
+if RUBY_VERSION.to_f >= 1.9
+  require 'csv'
+  FCSV = CSV
+else
+  require 'fastercsv'
+  FCSV = FasterCSV
+end
+
 require 'iconv'
 require 'transliterating_filter'
 
@@ -31,7 +40,7 @@ module ActionView # :nodoc:
       def compile(template)
         <<-EOV
         begin
-          output = FasterCSV.generate(@csv_options || {}) do |faster_csv|
+          output = FCSV.generate(@csv_options || {}) do |faster_csv|
             csv = TransliteratingFilter.new(faster_csv, @input_encoding || 'UTF-8', @output_encoding || 'LATIN1')
             #{template.source}
           end
@@ -53,7 +62,7 @@ module ActionView # :nodoc:
 
           output
         rescue Exception => e
-          RAILS_DEFAULT_LOGGER.warn("Exception \#{e} \#{e.message} with class \#{e.class.name} thrown when rendering CSV")
+          Rails.logger.warn("Exception \#{e} \#{e.message} with class \#{e.class.name} thrown when rendering CSV")
           raise e
         end
         EOV

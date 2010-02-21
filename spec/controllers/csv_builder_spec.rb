@@ -1,3 +1,5 @@
+#encoding: utf-8
+
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 class CsvBuilderReportsController < ApplicationController
@@ -60,7 +62,7 @@ describe CsvBuilderReportsController do
     
     it "sets filename" do
       get 'complex', :format => 'csv'
-      response.headers['Content-Disposition'].should match(/attachment; filename=some_complex_filename.csv/)
+      response.headers['Content-Disposition'].should match(/filename=some_complex_filename.csv/)
     end
   end
 end

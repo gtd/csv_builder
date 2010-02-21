@@ -1,4 +1,5 @@
 # encoding: utf-8
+
 require 'rubygems'
 
 ENV["RAILS_ENV"] ||= 'test'
@@ -8,7 +9,15 @@ require 'spec'
 require 'action_controller'
 require 'action_view'
 require 'spec/rails'
-require 'fastercsv'
+
+if RUBY_VERSION.to_f >= 1.9
+  require 'csv'
+  FCSV = CSV
+else
+  require 'fastercsv'
+  FCSV = FasterCSV
+end
+
 
 Spec::Runner.configure do |config|
 end
@@ -24,7 +33,7 @@ TEST_DATA = [
 ]
 
 def generate(options = {}, data = TEST_DATA)
-  FasterCSV.generate(options) do |csv|
+  FCSV.generate(options) do |csv|
     data.each do |row|
       csv << row
     end
