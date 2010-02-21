@@ -1,3 +1,8 @@
+== 1.1.8 release 2010-02-21
+* Specs (Vidmantas Kabosis)
+* Ruby 1.9 compability (Vidmantas Kabosis)
+* CSV options are again passed to the builder (Vidmantas Kabosis)
+
 == 1.1.7 release 2009-12-27
 
 * Forgot to add transliterating filter to gem spec

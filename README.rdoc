@@ -5,9 +5,12 @@ dynamically generated CSV files from your application.
 
 == Requirements
 
-CSV Builder requires Rails v2.1-2.3.x for Ruby 1.8.x or Rails v2.3.6 for Ruby 1.9.x
+CSV Builder works with:
+* Ruby 1.8.6/7 and Rails 2.1 or higher
+* Ruby 1.9.x and Rails 2.3.6
+* JRuby 1.4.0 and Rails 2.1 or higher
 
-If you run Ruby 1.8.6/7 it also depends upon the FasterCSV gem, which you can install with
+If you run Ruby 1.8.6/7 or JRuby it also depends upon the FasterCSV gem, which you can install with
 
   $ sudo gem install fastercsv
 
@@ -16,9 +19,7 @@ development/production machine.
 
 == Install
 
-=== Install as gem (recommended)
-
-Install as a gem:
+=== Install as a gem (recommended)
 
   $ gem install csv_builder
 
@@ -26,6 +27,10 @@ Then add the gem dependency in your config:
 
   # config/environment.rb
   config.gem "csv_builder"
+  
+=== Install as a plugin
+  
+  $ script/plugin install git://github.com/vidmantas/csv_builder.git
 
 == Example
 
@@ -76,8 +81,10 @@ including a snippet like the following in your mailer method
 == Troubleshooting
 
 There's a known bug of encoding error in Ruby 1.9 and Rails 2.3.5 
+
 For more details see https://rails.lighthouseapp.com/projects/8994/tickets/2188-i18n-fails-with-multibyte-strings-in-ruby-19-similar-to-2038
-This ticket is marked to be solved in Rails 2.3.6
+
+This ticket will be solved Rails 2.3.6, hopefully ;-)
 
 
 Copyright (c) 2008 Econsultancy.com and 2009 Vidmantas Kabošis, released under the MIT license
