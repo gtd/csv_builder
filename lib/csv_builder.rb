@@ -12,7 +12,8 @@ require 'iconv'
 require 'transliterating_filter'
 
 module ActionView # :nodoc:
-  module TemplateHandlers
+  module Template
+    module Handlers
     # Template handler for csv templates
     #
     # Add rows to your CSV file in the template by pushing arrays of columns into csv
@@ -34,8 +35,7 @@ module ActionView # :nodoc:
     # These default to 'UTF-8' and 'LATIN1' respectively. e.g.
     #
     #   @output_encoding = 'UTF-8'
-    class CsvBuilder < TemplateHandler
-      include Compilable
+    class CsvBuilder < ActionView::Template::Handler
 
       def compile(template)
         <<-EOV
