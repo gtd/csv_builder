@@ -1,5 +1,5 @@
 Gem::Specification.new do |s|
-  s.name    = 'mreinsch-csv_builder'
+  s.name    = 'csv_builder'
   s.version = '1.3.0'
   s.date    = '2010-11-26'
 
