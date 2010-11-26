@@ -16,5 +16,5 @@ Gem::Specification.new do |s|
   s.rdoc_options = ["--main", "README.rdoc"]
   s.extra_rdoc_files = %w(README.rdoc CHANGELOG.rdoc MIT-LICENSE)
 
-  s.files = %w(MIT-LICENSE README.rdoc CHANGELOG.rdoc Rakefile rails/init.rb lib/csv_builder.rb lib/transliterating_filter.rb)
+  s.files = %w(MIT-LICENSE README.rdoc CHANGELOG.rdoc Rakefile rails/init.rb lib/csv_builder.rb lib/csv_builder/railtie.rb lib/csv_builder/template_handler.rb lib/csv_builder/transliterating_filter.rb)
 end
