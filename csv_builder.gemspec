@@ -1,14 +1,14 @@
 Gem::Specification.new do |s|
-  s.name    = 'csv_builder'
-  s.version = '1.1.8'
-  s.date    = '2010-02-13'
+  s.name    = 'mreinsch-csv_builder'
+  s.version = '1.3.0'
+  s.date    = '2010-11-26'
 
   s.summary = "CSV template Rails plugin"
   s.description = "CSV template Rails plugin"
 
   s.authors  = ['Econsultancy']
   s.email    = 'code@econsultancy.com'
-  s.homepage = 'http://github.com/dasil003/csv_builder'
+  s.homepage = 'http://github.com/mreinsch/csv_builder'
 
   s.add_runtime_dependency(%q<fastercsv>)
 
