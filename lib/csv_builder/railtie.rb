@@ -3,4 +3,3 @@ class CsvBuilder::Railtie < Rails::Railtie
     ActionView::Template.register_template_handler 'csvbuilder', CsvBuilder::TemplateHandler
   end
 end
-

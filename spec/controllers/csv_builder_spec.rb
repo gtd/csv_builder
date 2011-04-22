@@ -34,8 +34,8 @@ ActionController::Routing::Routes.draw { |map| map.connect ':controller/:action'
 
 
 describe CsvBuilderReportsController do
-  integrate_views
-  
+  render_views
+
   describe "Simple layout" do
     it "still responds to HTML" do
       get 'simple'

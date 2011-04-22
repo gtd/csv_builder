@@ -1,29 +1,8 @@
 # encoding: utf-8
 
-require 'rubygems'
-
 ENV["RAILS_ENV"] ||= 'test'
-$:.unshift File.dirname(__FILE__)+'/rails'
-
-require 'spec'
-require 'action_controller'
-require 'action_view'
-require 'spec/rails'
-
-if RUBY_VERSION.to_f >= 1.9
-  require 'csv'
-  FCSV = CSV
-else
-  require 'fastercsv'
-  FCSV = FasterCSV
-end
-
-
-Spec::Runner.configure do |config|
-end
-
-require File.expand_path(File.dirname(__FILE__) + '/../lib/csv_builder')
-ActionView::Template.register_template_handler 'csvbuilder', ActionView::TemplateHandlers::CsvBuilder
+rails_root = File.expand_path('../rails_app', __FILE__)
+require rails_root + '/config/environment.rb'
 
 TEST_DATA = [
   ['Lorem', 'ipsum'],
@@ -33,7 +12,7 @@ TEST_DATA = [
 ]
 
 def generate(options = {}, data = TEST_DATA)
-  FCSV.generate(options) do |csv|
+  CsvBuilder::CSV_LIB.generate(options) do |csv|
     data.each do |row|
       csv << row
     end
