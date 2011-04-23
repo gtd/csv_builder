@@ -1,5 +1,5 @@
 **Important Note** Though I did not write this code, I did convert it to a gem and I'm currently the sole owner on
-rubygems.  With Joel Chippendale's approval I've taken over defacto maintainership of this gem.  My use case is
+rubygems.  With Joel Chippindale's approval I've taken over defacto maintainership of this gem.  My use case is
 primarily under rails 3, but I will accept patches for the 2.3.x version as well.
 
 # CSV Builder
