@@ -16,12 +16,8 @@ The current version of CSV Builder works with:
 * Rails 3.x
 * Ruby 1.8 or 1.9
 
-The legacy version (1.1.x) was originally developed and tested with:
-
-* Ruby 1.8.6/7 and Rails 2.1 or higher
-* Ruby 1.9.x and Rails 2.3.6
-* JRuby 1.4.0 and Rails 2.1 or higher
-* See [the legacy docs](https://github.com/econsultancy/csv_builder) for more details.
+The legacy version (1.1.x) was originally developed and tested for Rails 2.1.  See [the legacy
+docs](https://github.com/econsultancy/csv_builder) for more details.
 
 
 
@@ -80,7 +76,8 @@ including a snippet like the following in your mailer method
 
 ## Contributions
 
-As of version 2.0 this gem has a rudimentary spec suite for Rails 3.  The test suite has been run under both Ruby 1.8 and 1.9.  The requirements are in the Gemfile within the test spec directory.  So first you can run:
+As of version 2.0 this gem has a rudimentary spec suite for Rails 3.  The test suite has been run under both Ruby 1.8
+and 1.9.  The requirements are in the Gemfile within the test spec directory.  So first you can run:
 
     cd spec/rails_app && bundle install
 
