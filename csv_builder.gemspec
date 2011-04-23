@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{csv_builder}
-  s.version = "2.0.0"
+  s.version = "2.0.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Econsultancy", "Vidmantas Kabosis", "Gabe da Silveira"]
@@ -21,61 +21,11 @@ Gem::Specification.new do |s|
     "README.md",
     "Rakefile",
     "VERSION",
-    "csv_builder.gemspec",
     "lib/csv_builder.rb",
     "lib/csv_builder/railtie.rb",
     "lib/csv_builder/template_handler.rb",
     "lib/csv_builder/transliterating_filter.rb",
-    "rails/init.rb",
-    "spec/controllers/csv_builder_spec.rb",
-    "spec/rails_app/.gitignore",
-    "spec/rails_app/Gemfile",
-    "spec/rails_app/README",
-    "spec/rails_app/Rakefile",
-    "spec/rails_app/app/controllers/application_controller.rb",
-    "spec/rails_app/app/helpers/application_helper.rb",
-    "spec/rails_app/app/views/layouts/application.html.erb",
-    "spec/rails_app/config.ru",
-    "spec/rails_app/config/application.rb",
-    "spec/rails_app/config/boot.rb",
-    "spec/rails_app/config/database.yml",
-    "spec/rails_app/config/environment.rb",
-    "spec/rails_app/config/environments/development.rb",
-    "spec/rails_app/config/environments/production.rb",
-    "spec/rails_app/config/environments/test.rb",
-    "spec/rails_app/config/initializers/backtrace_silencers.rb",
-    "spec/rails_app/config/initializers/inflections.rb",
-    "spec/rails_app/config/initializers/mime_types.rb",
-    "spec/rails_app/config/initializers/secret_token.rb",
-    "spec/rails_app/config/initializers/session_store.rb",
-    "spec/rails_app/config/locales/en.yml",
-    "spec/rails_app/config/routes.rb",
-    "spec/rails_app/db/seeds.rb",
-    "spec/rails_app/doc/README_FOR_APP",
-    "spec/rails_app/lib/tasks/.gitkeep",
-    "spec/rails_app/public/404.html",
-    "spec/rails_app/public/422.html",
-    "spec/rails_app/public/500.html",
-    "spec/rails_app/public/favicon.ico",
-    "spec/rails_app/public/images/rails.png",
-    "spec/rails_app/public/index.html",
-    "spec/rails_app/public/javascripts/application.js",
-    "spec/rails_app/public/javascripts/controls.js",
-    "spec/rails_app/public/javascripts/dragdrop.js",
-    "spec/rails_app/public/javascripts/effects.js",
-    "spec/rails_app/public/javascripts/prototype.js",
-    "spec/rails_app/public/javascripts/rails.js",
-    "spec/rails_app/public/robots.txt",
-    "spec/rails_app/public/stylesheets/.gitkeep",
-    "spec/rails_app/script/rails",
-    "spec/rails_app/test/performance/browsing_test.rb",
-    "spec/rails_app/test/test_helper.rb",
-    "spec/rails_app/vendor/plugins/.gitkeep",
-    "spec/spec_helper.rb",
-    "spec/templates/csv_builder_reports/complex.csv.csvbuilder",
-    "spec/templates/csv_builder_reports/encoding.csv.csvbuilder",
-    "spec/templates/csv_builder_reports/simple.csv.csvbuilder",
-    "spec/templates/csv_builder_reports/simple.html.erb"
+    "rails/init.rb"
   ]
   s.homepage = %q{http://github.com/dasil003/csv_builder}
   s.licenses = ["MIT"]
@@ -92,15 +42,8 @@ Gem::Specification.new do |s|
     "spec/rails_app/config/environments/development.rb",
     "spec/rails_app/config/environments/production.rb",
     "spec/rails_app/config/environments/test.rb",
-    "spec/rails_app/config/initializers/backtrace_silencers.rb",
-    "spec/rails_app/config/initializers/inflections.rb",
-    "spec/rails_app/config/initializers/mime_types.rb",
-    "spec/rails_app/config/initializers/secret_token.rb",
-    "spec/rails_app/config/initializers/session_store.rb",
     "spec/rails_app/config/routes.rb",
     "spec/rails_app/db/seeds.rb",
-    "spec/rails_app/test/performance/browsing_test.rb",
-    "spec/rails_app/test/test_helper.rb",
     "spec/spec_helper.rb"
   ]
 
