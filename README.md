@@ -1,22 +1,29 @@
+**Important Note** Though I did not write this code, I did convert it to a gem and I'm currently the sole owner on
+rubygems.  With Joel Chippendale's approval I've taken over defacto maintainership of this gem.  My use case is
+primarily under rails 3, but I will accept patches for the 2.3.x version as well.
+
 # CSV Builder
 
-The CSV Builder Rails plugin provides a simple templating system for serving
-dynamically generated CSV files from your application.
+The CSV Builder Rails plugin provides a simple templating system for serving dynamically generated CSV files from your
+application.
+
+
 
 ## Requirements
 
-CSV Builder works with:
+The current version of CSV Builder works with:
+
+* Rails 3.x
+* Ruby 1.8 or 1.9
+
+The legacy version (1.1.x) was originally developed and tested with:
 
 * Ruby 1.8.6/7 and Rails 2.1 or higher
 * Ruby 1.9.x and Rails 2.3.6
 * JRuby 1.4.0 and Rails 2.1 or higher
+* See [the legacy docs](https://github.com/econsultancy/csv_builder) for more details.
 
-If you run Ruby 1.8.6/7 or JRuby it also depends upon the FasterCSV gem, which you can install with
 
-  $ sudo gem install fastercsv
-
-Encoding conversions are done with Iconv, so make sure you have it on your
-development/production machine.
 
 ## Install
 
@@ -24,21 +31,15 @@ development/production machine.
 
     $ gem install csv_builder
 
-Then add the gem dependency in your config:
+If you are using Bundler then [you know what to do](http://gembundler.com).
 
-    # config/environment.rb
-    config.gem "csv_builder"
-  
-### Install as a plugin
-  
-    $ script/plugin install git://github.com/vidmantas/csv_builder.git
+
 
 ## Example
 
 CSV template files are suffixed with `.csv.csvbuilder`, for example `index.csv.csvbuilder`
 
-Add rows to your CSV file in the template by pushing arrays of columns into the
-csv object.
+Add rows to your CSV file in the template by pushing arrays of columns into the csv object.
 
      # First row
      csv << [ 'cell 1', 'cell 2' ]
@@ -46,20 +47,17 @@ csv object.
      csv << [ 'another cell value', 'and another' ]
      # etc...
 
-You can set the default filename for that a browser will use for 'save as' by
-setting `@filename` instance variable in your controller's action method
-e.g.
+You can set the default filename for that a browser will use for 'save as' by setting `@filename` instance variable in
+your controller's action method e.g.
 
     @filename = 'report.csv'
 
-You can set the input encoding and output encoding by setting
-`@input_encoding` and `@output_encoding` instance variables.
-These default to 'UTF-8' and 'LATIN1' respectively. e.g.
+You can set the input encoding and output encoding by setting `@input_encoding` and `@output_encoding` instance
+variables.  These default to 'UTF-8' and 'LATIN1' respectively. e.g.
 
     @output_encoding = 'UTF-8'
 
-You can set `@csv_options` instance variable to define options for FasterCSV 
-generator. For example: 
+You can set `@csv_options` instance variable to define options for FasterCSV generator. For example: 
 
     @csv_options = { :force_quotes => true, :col_sep => ';' }
 
@@ -79,6 +77,21 @@ including a snippet like the following in your mailer method
     end
 
 
+
+## Contributions
+
+As of version 2.0 this gem has a rudimentary spec suite for Rails 3.  The test suite has been run under both Ruby 1.8 and 1.9.  The requirements are in the Gemfile within the test spec directory.  So first you can run:
+
+    cd spec/rails_app && bundle install
+
+To install the main testing requirements.  Then return back to the root directory and run:
+
+    rake spec
+
+I will also take patches for Rails 2.3.x, though I personally have no further need of that branch.
+
+
+
 == Troubleshooting
 
 There's a known bug of encoding error in Ruby 1.9
@@ -86,4 +99,4 @@ There's a known bug of encoding error in Ruby 1.9
 For more details see https://rails.lighthouseapp.com/projects/8994/tickets/2188-i18n-fails-with-multibyte-strings-in-ruby-19-similar-to-2038
 
 
-Copyright (c) 2008 Econsultancy.com and 2009 Vidmantas Kabošis, released under the MIT license
+Copyright (c) 2008 Econsultancy.com, 2009 Vidmantas Kabošis & 2011 Gabe da Silveira released under the MIT license
