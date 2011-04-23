@@ -29,5 +29,7 @@ Jeweler::Tasks.new do |gem|
   gem.description = %Q{CSV template handler for Rails.  Enables :format => 'csv' in controllers, with templates of the form report.csv.csvbuilder.}
   gem.email = "gabe@websaviour.com"
   gem.authors = ['Econsultancy', 'Vidmantas Kabosis', "Gabe da Silveira"]
+
+  gem.files.exclude 'spec'
 end
 Jeweler::RubygemsDotOrgTasks.new
