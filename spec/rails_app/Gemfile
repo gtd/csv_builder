@@ -1,8 +1,12 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.7'
+gem 'rails', '~> 3.0.7'
 gem 'sqlite3'
 
 gem 'rspec', '~> 2.5.0'
 gem 'rspec-rails', '~> 2.5.0', :require => 'rspec/rails'
 gem 'csv_builder', :path => '../..'
+
+if RUBY_VERSION.to_f < 1.9
+  gem 'fastercsv'
+end
