@@ -1,4 +1,6 @@
-== 1.1.8 release 2010-02-21
+* Fixed specs for Rspec 2.5 and Rails 3.0.7
+
+== 1.1.8 (not released to gemcutter)
 * Specs (Vidmantas Kabosis)
 * Ruby 1.9 compability (Vidmantas Kabosis)
 * CSV options are again passed to the builder (Vidmantas Kabosis)
