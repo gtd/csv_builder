@@ -1,6 +1,7 @@
 **Important Note** Though I did not write this code, I did convert it to a gem and I'm currently the sole owner on
 rubygems.  With Joel Chippindale's approval I've taken over defacto maintainership of this gem.  My use case is
-primarily under rails 3, but I will accept patches for the 2.3.x version as well.
+primarily under rails 3, and the current version is not backwards compatible, but I will maintain a 2.3.x branch as well
+if anyone has patches.
 
 # CSV Builder
 
@@ -89,7 +90,7 @@ I will also take patches for Rails 2.3.x, though I personally have no further ne
 
 
 
-== Troubleshooting
+## Troubleshooting
 
 There's a known bug of encoding error in Ruby 1.9
 
