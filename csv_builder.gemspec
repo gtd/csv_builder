@@ -64,5 +64,7 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<rack>, [">= 0"])
     s.add_dependency(%q<sqlite3>, [">= 0"])
   end
+
+  s.add_dependency('actionpack', '>=3.0.0')
 end
 
