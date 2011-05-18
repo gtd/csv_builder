@@ -10,6 +10,7 @@ module CsvBuilder
   end
 end
 
+require 'action_view'
 require 'iconv'
 require 'csv_builder/transliterating_filter'
 require 'csv_builder/template_handler'
