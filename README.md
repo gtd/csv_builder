@@ -78,9 +78,10 @@ including a snippet like the following in your mailer method
 ## Contributions
 
 As of version 2.0 this gem has a rudimentary spec suite for Rails 3.  The test suite has been run under both Ruby 1.8
-and 1.9.  The requirements are in the Gemfile within the test spec directory.  So first you can run:
+and 1.9.  The requirements are in the Gemfile within the test spec directory.  You will need Bundler installed and then
+you can run:
 
-    cd spec/rails_app && bundle install
+    cd spec/rails_app && bundle install && cd ../..
 
 To install the main testing requirements.  Then return back to the root directory and run:
 
