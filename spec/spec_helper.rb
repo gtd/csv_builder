@@ -4,6 +4,8 @@ ENV["RAILS_ENV"] ||= 'test'
 rails_root = File.expand_path('../rails_app', __FILE__)
 require rails_root + '/config/environment.rb'
 
+require 'rspec/rails'
+
 TEST_DATA = [
   ['Lorem', 'ipsum'],
   ['Lorem ipsum dolor sit amet,' 'consectetur adipiscing elit. Sed id '],

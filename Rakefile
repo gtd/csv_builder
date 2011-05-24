@@ -31,5 +31,17 @@ Jeweler::Tasks.new do |gem|
   gem.authors = ['Econsultancy', 'Vidmantas Kabosis', "Gabe da Silveira"]
 
   gem.files.exclude 'spec'
+
+  gem.add_dependency 'rails', '>= 3.0.0'
+
+  gem.add_development_dependency 'rspec', '~> 2.5'
+  gem.add_development_dependency 'rspec-rails', '~> 2.5'
+  gem.add_development_dependency 'jeweler'
+  gem.add_development_dependency 'rails', '~> 3.0'
+  gem.add_development_dependency 'rack'
+  gem.add_development_dependency 'sqlite3'
+
+  gem.requirements << 'iconv'
+  gem.requirements << 'Ruby 1.9.x or FasterCSV'
 end
 Jeweler::RubygemsDotOrgTasks.new

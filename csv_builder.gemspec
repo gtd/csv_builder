@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Econsultancy", "Vidmantas Kabosis", "Gabe da Silveira"]
-  s.date = %q{2011-04-22}
+  s.date = %q{2011-05-24}
   s.description = %q{CSV template handler for Rails.  Enables :format => 'csv' in controllers, with templates of the form report.csv.csvbuilder.}
   s.email = %q{gabe@websaviour.com}
   s.extra_rdoc_files = [
@@ -30,30 +30,39 @@ Gem::Specification.new do |s|
   s.homepage = %q{http://github.com/dasil003/csv_builder}
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.5.2}
+  s.requirements = ["iconv", "Ruby 1.9.x or FasterCSV"]
+  s.rubygems_version = %q{1.3.7}
   s.summary = %q{CSV template handler for Rails}
-  s.test_files = [
-    "spec/controllers/csv_builder_spec.rb",
-    "spec/rails_app/app/controllers/application_controller.rb",
-    "spec/rails_app/app/helpers/application_helper.rb",
-    "spec/rails_app/config/application.rb",
-    "spec/rails_app/config/boot.rb",
-    "spec/rails_app/config/environment.rb",
-    "spec/rails_app/config/environments/development.rb",
-    "spec/rails_app/config/environments/production.rb",
-    "spec/rails_app/config/environments/test.rb",
-    "spec/rails_app/config/routes.rb",
-    "spec/rails_app/db/seeds.rb",
-    "spec/spec_helper.rb"
-  ]
 
   if s.respond_to? :specification_version then
+    current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
+      s.add_runtime_dependency(%q<rails>, [">= 3.0.0"])
+      s.add_development_dependency(%q<rspec>, ["~> 2.5"])
+      s.add_development_dependency(%q<rspec-rails>, ["~> 2.5"])
+      s.add_development_dependency(%q<jeweler>, [">= 0"])
+      s.add_development_dependency(%q<rails>, ["~> 3.0"])
+      s.add_development_dependency(%q<rack>, [">= 0"])
+      s.add_development_dependency(%q<sqlite3>, [">= 0"])
     else
+      s.add_dependency(%q<rails>, [">= 3.0.0"])
+      s.add_dependency(%q<rspec>, ["~> 2.5"])
+      s.add_dependency(%q<rspec-rails>, ["~> 2.5"])
+      s.add_dependency(%q<jeweler>, [">= 0"])
+      s.add_dependency(%q<rails>, ["~> 3.0"])
+      s.add_dependency(%q<rack>, [">= 0"])
+      s.add_dependency(%q<sqlite3>, [">= 0"])
     end
   else
+    s.add_dependency(%q<rails>, [">= 3.0.0"])
+    s.add_dependency(%q<rspec>, ["~> 2.5"])
+    s.add_dependency(%q<rspec-rails>, ["~> 2.5"])
+    s.add_dependency(%q<jeweler>, [">= 0"])
+    s.add_dependency(%q<rails>, ["~> 3.0"])
+    s.add_dependency(%q<rack>, [">= 0"])
+    s.add_dependency(%q<sqlite3>, [">= 0"])
   end
 end
 
