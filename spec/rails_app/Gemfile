@@ -4,6 +4,4 @@ gemspec :path => File.expand_path(File.join(File.dirname(__FILE__), '../..'))
 
 gem 'csv_builder', :path => '../..'
 
-if RUBY_VERSION.to_f < 1.9
-  gem 'fastercsv'
-end
+gem 'fastercsv', :platforms => :ruby_18
