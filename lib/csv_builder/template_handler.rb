@@ -1,7 +1,6 @@
 # encoding: utf-8
 
 module CsvBuilder # :nodoc:
-
   # Template handler for csv templates
   #
   # Add rows to your CSV file in the template by pushing arrays of columns into csv
