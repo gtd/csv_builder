@@ -23,10 +23,15 @@ module CsvBuilder # :nodoc:
     # These default to 'UTF-8' and 'LATIN1' respectively. e.g.
     #
     #   @output_encoding = 'UTF-8'
-    class TemplateHandler < ActionView::Template::Handler
-      include ActionView::Template::Handlers::Compilable
 
-      def compile(template)
+    if defined?(Rails) and Rails.version < '3'
+      class TemplateHandler < ActionView::Template::Handler
+        include ActionView::Template::Handlers::Compilable
+      end
+    end
+
+    class TemplateHandler
+      def self.call(template)
         <<-EOV
         begin
           output = CsvBuilder::CSV_LIB.generate(@csv_options || {}) do |faster_csv|
@@ -55,6 +60,10 @@ module CsvBuilder # :nodoc:
           raise e
         end
         EOV
+      end
+
+      def compile(template)
+        self.class.call(template)
       end
     end
 end
