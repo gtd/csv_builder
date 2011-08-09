@@ -1,3 +1,7 @@
+#Fawce's notes on forking: 
+I'm forking the project to add support for streaming responses. Many of the csv files I'm generating are quite large, and need to be streamed rather than return in a single shot. I'm basing my stream handling on [an example from David's Computer Stuff Journal](http://journal.dedasys.com/2006/06/08/streaming-programmatically-generated-content-from-rails)
+
+========
 **Important Note** Though I did not write this code, I did convert it to a gem and I'm currently the sole owner on
 rubygems.  With Joel Chippindale's approval I've taken over defacto maintainership of this gem.  My use case is
 primarily under rails 3, and the current version is not backwards compatible, but I will maintain a 2.3.x branch as well
