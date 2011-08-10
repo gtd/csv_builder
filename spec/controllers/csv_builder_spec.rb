@@ -28,6 +28,13 @@ class CsvBuilderReportsController < ApplicationController
       format.csv { @output_encoding = 'UTF-16' }
     end
   end
+  
+  def massive
+    respond_to do |format|
+      @streaming = true
+      format.csv 
+    end
+  end
 
 end
 ActionController::Routing::Routes.draw { |map| map.connect ':controller/:action' }
@@ -63,6 +70,11 @@ describe CsvBuilderReportsController do
     it "sets filename" do
       get 'complex', :format => 'csv'
       response.headers['Content-Disposition'].should match(/filename=some_complex_filename.csv/)
+    end
+    
+    it "handles very large downloads without timing out" do
+      get 'massive', :format => 'csv'
+      response.body.to_s.length.should == 100
     end
   end
 end

@@ -5,3 +5,5 @@ gemspec :path => File.expand_path(File.join(File.dirname(__FILE__), '../..'))
 gem 'csv_builder', :path => '../..'
 
 gem 'fastercsv', :platforms => :ruby_18
+
+gem 'mongrel', '1.2.0.pre2'

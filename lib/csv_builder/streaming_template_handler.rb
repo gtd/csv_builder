@@ -46,18 +46,38 @@ module CsvBuilder # :nodoc:
             end
           end
           
-          return proc { |response, output| 
-             
-            output.class.send(:define_method, "pos") { return 0 }
-            output.class.send(:define_method, "eof?") { return false }
-            output.class.send(:define_method, "rewind") {}
-            output.class.send(:define_method, "read") {|arg1|  return "\\n" }
-            output.class.send(:define_method, "<<") {|arg1|   self.write(arg1)}
-            csv_stream = CsvBuilder::CSV_LIB.new(output, @csv_options || {}) 
-            csv = CsvBuilder::TransliteratingFilter.new(csv_stream, @input_encoding || 'UTF-8', @output_encoding || 'LATIN1')
-            #{template.source}
-          }
-          return ""
+          if @streaming
+            print "I'm streaming!"
+            Enumerator.new do |output| 
+              
+              # The ruby csv class will try to infer a separator to use, if the csv options
+              # do not set it. ruby's csv calls pos, eof?, read, and rewind to check the first line
+              # of the io to infer a separator. Rails' output object does not support these methods
+              # so we provide a mock implementation to satisfy csv.
+              #
+              # See code at https://github.com/ruby/ruby/blob/trunk/lib/csv.rb#L2021 - note that @io points
+              # to the output variable defined by this block.
+              output.class.send(:define_method, "pos") {return 0 }
+              output.class.send(:define_method, "eof?") { return true }
+              output.class.send(:define_method, "rewind") {}
+              #read needs to return a newline, otherwise csv loops indefinitely looking for the end of the first line.
+              output.class.send(:define_method, "read") {|arg1| return "\\n" }
+                                                        
+              # The ruby csv write method requires output to support << for writing. Here we just 
+              # delegate the method call to output's write method.
+              #output.class.send(:define_method, "<<") {|arg1| self.write(arg1)}
+
+              csv_stream = CsvBuilder::CSV_LIB.new(output, @csv_options || {}) 
+              csv = CsvBuilder::TransliteratingFilter.new(csv_stream, @input_encoding || 'UTF-8', @output_encoding || 'LATIN1')
+              #{template.source}
+            end
+          else 
+            output = CsvBuilder::CSV_LIB.generate(@csv_options || {}) do |faster_csv|
+              csv = CsvBuilder::TransliteratingFilter.new(faster_csv, @input_encoding || 'UTF-8', @output_encoding || 'LATIN1')
+              #{template.source}
+            end
+            output
+          end
         rescue Exception => e
           Rails.logger.warn("Exception \#{e} \#{e.message} with class \#{e.class.name} thrown when rendering CSV")
           raise e
