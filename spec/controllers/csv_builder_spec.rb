@@ -71,6 +71,10 @@ describe CsvBuilderReportsController do
       get 'complex', :format => 'csv'
       response.headers['Content-Disposition'].should match(/filename=some_complex_filename.csv/)
     end
-
+    
+    it "handles very large downloads without timing out" do
+      get 'massive', :format => 'csv'
+      response.body.to_s.length.should == 24890
+    end
   end
 end
