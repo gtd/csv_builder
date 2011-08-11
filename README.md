@@ -1,5 +1,8 @@
-#Fawce's notes on forking: 
-I'm forking the project to add support for streaming responses. Many of the csv files I'm generating are quite large, and need to be streamed rather than return in a single shot. I'm basing my stream handling on [an example from David's Computer Stuff Journal](http://journal.dedasys.com/2006/06/08/streaming-programmatically-generated-content-from-rails)
+**N.B.** This is a fork to add support for streaming, so that templates can respond with arbitrarily large documents. To make this code available as a gem, I renamed the gem csv_streamer. I'm hoping the maintainers will accept my pull request, and I'll move all references back to csv_builder
+
+## Streaming Support
+Many csv files are quite large, and need to be streamed rather than return in a single shot. Csv stream handling is based on [an epic answer on stackoverflow about rails and streaming.](http://stackoverflow.com/questions/3507594/ruby-on-rails-3-streaming-data-through-rails-to-client). Streaming requires configuration of your rails app - you need to use a Rack that supports streaming. I've tested with Unicorn, and created [a separate sample](https://github.com/fawce/test_csv_streamer) project to facilitate testing on Heroku. 
+
 
 ========
 **Important Note** Though I did not write this code, I did convert it to a gem and I'm currently the sole owner on
@@ -12,14 +15,13 @@ if anyone has patches.
 The CSV Builder Rails plugin provides a simple templating system for serving dynamically generated CSV files from your
 application.
 
-
-
 ## Requirements
 
 The current version of CSV Builder works with:
 
 * Rails 3.x
 * Ruby 1.8 or 1.9
+* Unicorn _is required for streaming_ see [the example streaming app](https://github.com/fawce/test_csv_streamer) for more details.
 
 The legacy version (1.1.x) was originally developed and tested for Rails 2.1.  See [the legacy
 docs](https://github.com/econsultancy/csv_builder) for more details.
@@ -31,6 +33,8 @@ docs](https://github.com/econsultancy/csv_builder) for more details.
 ### Install as a gem (recommended)
 
     $ gem install csv_builder
+_or for streaming_
+	$ gem install csv_streamer 
 
 If you are using Bundler then [you know what to do](http://gembundler.com).
 
@@ -62,6 +66,10 @@ You can set `@csv_options` instance variable to define options for FasterCSV gen
 
     @csv_options = { :force_quotes => true, :col_sep => ';' }
 
+You can optionally stream your results line by line as they are generated. Results will stream if the underlying Rack server supports streaming, otherwise the results will be buffered and sent when the template finishes rendering. Just set `@streaming` to true:
+	
+	@streaming = true 
+
 You can respond with csv in your controller as well:
 
     respond_to do |format|
@@ -76,7 +84,6 @@ including a snippet like the following in your mailer method
       attachment.body = render(:file => 'example/index.csv.csvbuilder')
       attachment.filename = 'report.csv'
     end
-
 
 
 ## Contributions
@@ -94,7 +101,6 @@ To install the main testing requirements.  Then return back to the root director
 I will also take patches for Rails 2.3.x, though I personally have no further need of that branch.
 
 
-
 ## Troubleshooting
 
 There's a known bug of encoding error in Ruby 1.9
@@ -102,4 +108,5 @@ There's a known bug of encoding error in Ruby 1.9
 For more details see https://rails.lighthouseapp.com/projects/8994/tickets/2188-i18n-fails-with-multibyte-strings-in-ruby-19-similar-to-2038
 
 
-Copyright (c) 2008 Econsultancy.com, 2009 Vidmantas Kabošis & 2011 Gabe da Silveira released under the MIT license
+Original content Copyright (c) 2008 Econsultancy.com, 2009 Vidmantas Kabošis & 2011 Gabe da Silveira released under the MIT license
+Updated content for streaming, Copyright (c) 2011 John Fawcett released under the MIT license

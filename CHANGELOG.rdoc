@@ -1,3 +1,9 @@
+
+* Implemented streaming support. 
+* Temporarily renamed to csv_streamer to facilitate publishing to rubygems. (fawce.com)
+
+== 0.0.3 release 2011-08-11
+
 * Added dependencies and simplified contributor setup
 
 == 2.0.1 release 2011-04-22
