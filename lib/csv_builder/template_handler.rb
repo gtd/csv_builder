@@ -23,8 +23,8 @@ module CsvBuilder # :nodoc:
     # These default to 'UTF-8' and 'LATIN1' respectively. e.g.
     #
     #   @output_encoding = 'UTF-8'
-    class TemplateHandler < ActionView::Template::Handler
-      include ActionView::Template::Handlers::Compilable
+    class TemplateHandler < (::Rails::VERSION::MAJOR < 3 ? ::ActionView::Template::Handler : ::Object)
+      include ActionView::Template::Handlers::Compilable if ::Rails::VERSION::MAJOR < 3
 
       def compile(template)
         <<-EOV
