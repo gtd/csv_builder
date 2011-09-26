@@ -23,8 +23,10 @@ module CsvBuilder # :nodoc:
     # These default to 'UTF-8' and 'LATIN1' respectively. e.g.
     #
     #   @output_encoding = 'UTF-8'
-    class TemplateHandler < ActionView::Template::Handler
-      include ActionView::Template::Handlers::Compilable
+    class TemplateHandler
+      def self.call(template)
+        new.compile(template)
+      end
 
       def compile(template)
         <<-EOV
