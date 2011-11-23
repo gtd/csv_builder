@@ -87,7 +87,7 @@ module CsvBuilder # :nodoc:
     end
   end
   
-  class TemplateHandler < ActionView::Template::Handler
+  class TemplateHandler
     def self.call(template)
       
       <<-EOV
