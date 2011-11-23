@@ -37,7 +37,12 @@ class CsvBuilderReportsController < ApplicationController
   end
 
 end
-ActionController::Routing::Routes.draw { |map| map.connect ':controller/:action' }
+
+if defined?(Rails) and Rails.version < '3'
+  ActionController::Routing::Routes.draw { |map| map.connect ':controller/:action' }
+else
+  Rails.application.routes.draw { get ':controller/:action' }
+end
 
 
 describe CsvBuilderReportsController do
