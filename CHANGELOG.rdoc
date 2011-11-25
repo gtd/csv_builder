@@ -1,3 +1,7 @@
+* Implemented streaming support. 
+* Temporarily renamed to csv_streamer to facilitate publishing to rubygems. (fawce.com)
+* Merged back fawce's patch so it can be used in mainline csv_builder. (nbudin)
+
 == 2.0.2 release 2011-09-26
 * Rails 3.1 deprecation warning fix (Scott Gonyea, Tom Anderson, Sergio Cambra)
 * Added dependencies and simplified contributor setup

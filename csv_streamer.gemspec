@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.version = "2.0.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = [%q{Econsultancy}, %q{Vidmantas Kabosis}, %q{Gabe da Silveira}]
+  s.authors = [%q{Econsultancy}, %q{Vidmantas Kabosis}, %q{Gabe da Silveira}, %q{fawce.com}]
   s.date = %q{2011-09-26}
   s.description = %q{CSV template handler for Rails.  Enables :format => 'csv' in controllers, with templates of the form report.csv.csvbuilder.}
   s.email = %q{gabe@websaviour.com}
@@ -50,7 +50,7 @@ Gem::Specification.new do |s|
     "spec/templates/csv_builder_reports/simple.csv.csvbuilder",
     "spec/templates/csv_builder_reports/simple.html.erb"
   ]
-  s.homepage = %q{http://github.com/dasil003/csv_builder}
+  s.homepage = %q{https://github.com/fawce/csv_builder}
   s.licenses = [%q{MIT}]
   s.require_paths = [%q{lib}]
   s.requirements = [%q{iconv}, %q{Ruby 1.9.x or FasterCSV}]
