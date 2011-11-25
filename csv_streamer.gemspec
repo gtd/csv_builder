@@ -4,12 +4,12 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{csv_streamer}
-  s.version = "0.0.3"
+  s.name = %q{csv_builder}
+  s.version = "2.0.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = [%q{Econsultancy}, %q{Vidmantas Kabosis}, %q{Gabe da Silveira}, %q{fawce.com}]
-  s.date = %q{2011-05-24}
+  s.date = %q{2011-09-26}
   s.description = %q{CSV template handler for Rails.  Enables :format => 'csv' in controllers, with templates of the form report.csv.csvbuilder.}
   s.email = %q{gabe@websaviour.com}
   s.extra_rdoc_files = [
@@ -21,17 +21,40 @@ Gem::Specification.new do |s|
     "README.md",
     "Rakefile",
     "VERSION",
-    "lib/csv_streamer.rb",
-    "lib/csv_streamer/railtie.rb",
-    "lib/csv_streamer/template_handler.rb",
-    "lib/csv_streamer/transliterating_filter.rb",
-    "rails/init.rb"
+    "csv_builder.gemspec",
+    "lib/csv_builder.rb",
+    "lib/csv_builder/railtie.rb",
+    "lib/csv_builder/template_handler.rb",
+    "lib/csv_builder/transliterating_filter.rb",
+    "rails/init.rb",
+    "spec/controllers/csv_builder_spec.rb",
+    "spec/rails_app/.gitignore",
+    "spec/rails_app/Gemfile",
+    "spec/rails_app/README",
+    "spec/rails_app/app/controllers/application_controller.rb",
+    "spec/rails_app/app/helpers/application_helper.rb",
+    "spec/rails_app/app/views/layouts/application.html.erb",
+    "spec/rails_app/config.ru",
+    "spec/rails_app/config/application.rb",
+    "spec/rails_app/config/boot.rb",
+    "spec/rails_app/config/database.yml",
+    "spec/rails_app/config/environment.rb",
+    "spec/rails_app/config/environments/development.rb",
+    "spec/rails_app/config/environments/production.rb",
+    "spec/rails_app/config/environments/test.rb",
+    "spec/rails_app/config/routes.rb",
+    "spec/rails_app/db/seeds.rb",
+    "spec/spec_helper.rb",
+    "spec/templates/csv_builder_reports/complex.csv.csvbuilder",
+    "spec/templates/csv_builder_reports/encoding.csv.csvbuilder",
+    "spec/templates/csv_builder_reports/simple.csv.csvbuilder",
+    "spec/templates/csv_builder_reports/simple.html.erb"
   ]
   s.homepage = %q{https://github.com/fawce/csv_builder}
   s.licenses = [%q{MIT}]
   s.require_paths = [%q{lib}]
   s.requirements = [%q{iconv}, %q{Ruby 1.9.x or FasterCSV}]
-  s.rubygems_version = %q{1.8.3}
+  s.rubygems_version = %q{1.8.6}
   s.summary = %q{CSV template handler for Rails}
 
   if s.respond_to? :specification_version then

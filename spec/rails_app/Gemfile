@@ -2,6 +2,6 @@ source 'http://rubygems.org'
 
 gemspec :path => File.expand_path(File.join(File.dirname(__FILE__), '../..'))
 
-gem 'csv_streamer', :path => '../..'
+gem 'csv_builder', :path => '../..'
 
 gem 'fastercsv', :platforms => :ruby_18

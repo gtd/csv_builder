@@ -1,10 +1,3 @@
-**N.B.** This is a fork to add support for streaming, so that templates can respond with arbitrarily large documents. To make this code available as a gem, I renamed the gem csv_streamer. I'm hoping the maintainers will accept my pull request, and I'll move all references back to csv_builder
-
-## Streaming Support
-Many csv files are quite large, and need to be streamed rather than return in a single shot. Csv stream handling is based on [an epic answer on stackoverflow about rails and streaming.](http://stackoverflow.com/questions/3507594/ruby-on-rails-3-streaming-data-through-rails-to-client). Streaming requires configuration of your rails app - you need to use a Rack that supports streaming. I've tested with Unicorn, and created [a separate sample](https://github.com/fawce/test_csv_streamer) project to facilitate testing on Heroku. 
-
-
-========
 **Important Note** Though I did not write this code, I did convert it to a gem and I'm currently the sole owner on
 rubygems.  With Joel Chippindale's approval I've taken over defacto maintainership of this gem.  My use case is
 primarily under rails 3, and the current version is not backwards compatible, but I will maintain a 2.3.x branch as well
@@ -84,6 +77,9 @@ including a snippet like the following in your mailer method
       attachment.body = render(:file => 'example/index.csv.csvbuilder')
       attachment.filename = 'report.csv'
     end
+
+## Streaming Support
+Many csv files are quite large, and need to be streamed rather than return in a single shot. Csv stream handling is based on [an epic answer on stackoverflow about rails and streaming.](http://stackoverflow.com/questions/3507594/ruby-on-rails-3-streaming-data-through-rails-to-client). Streaming requires configuration of your rails app - you need to use a Rack that supports streaming. I've tested with Unicorn, and created [a separate sample](https://github.com/fawce/test_csv_streamer) project to facilitate testing on Heroku. 
 
 
 ## Contributions
