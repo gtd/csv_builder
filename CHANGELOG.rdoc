@@ -1,4 +1,5 @@
-* Implemented streaming support. 
+== 2.1.0 release 2011-11-25
+* Implemented streaming support. (fawce.com)
 * Temporarily renamed to csv_streamer to facilitate publishing to rubygems. (fawce.com)
 * Merged back fawce's patch so it can be used in mainline csv_builder. (nbudin)
 
