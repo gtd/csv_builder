@@ -99,11 +99,11 @@ module CsvBuilder # :nodoc:
             response.headers['Pragma'] = 'public'
             response.headers["Content-type"] = "text/plain"
             response.headers['Cache-Control'] = 'no-cache, must-revalidate, post-check=0, pre-check=0'
-            response.headers['Content-Disposition'] = "attachment; filename=\#{@filename}"
+            response.headers['Content-Disposition'] = "attachment; filename=\\"\#{@filename}\\""
             response.headers['Expires'] = "0"
           else
             response.headers["Content-Type"] ||= 'text/csv'
-            response.headers["Content-Disposition"] = "attachment; filename=\#{@filename}"
+            response.headers["Content-Disposition"] = "attachment; filename=\\"\#{@filename}\\""
             response.headers["Content-Transfer-Encoding"] = "binary"
           end
         end
