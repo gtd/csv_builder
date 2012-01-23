@@ -74,7 +74,7 @@ describe CsvBuilderReportsController do
 
     it "sets filename" do
       get 'complex', :format => 'csv'
-      response.headers['Content-Disposition'].should match(/filename=some_complex_filename.csv/)
+      response.headers['Content-Disposition'].should match(/filename="some_complex_filename.csv"/)
     end
     
     #TODO: unfortunately, this test only verifies that streaming will behave like single-shot response, because rspec's testresponse doesn't 
