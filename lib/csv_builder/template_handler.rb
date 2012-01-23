@@ -96,9 +96,9 @@ module CsvBuilder # :nodoc:
         unless defined?(ActionMailer) && defined?(ActionMailer::Base) && controller.is_a?(ActionMailer::Base)
           @filename ||= "\#{controller.action_name}.csv"
           if controller.request.env['HTTP_USER_AGENT'] =~ /msie/i
-            response.headers['Pragma'] = 'public'
+            response.headers['Pragma'] = 'must-revalidate'
             response.headers["Content-type"] = "text/plain"
-            response.headers['Cache-Control'] = 'no-cache, must-revalidate, post-check=0, pre-check=0'
+            response.headers['Cache-Control'] = 'must-revalidate, post-check=0, pre-check=0'
             response.headers['Content-Disposition'] = "attachment; filename=\\"\#{@filename}\\""
             response.headers['Expires'] = "0"
           else
