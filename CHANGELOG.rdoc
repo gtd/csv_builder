@@ -1,3 +1,4 @@
+* Fix for IE under SSL (tkiley)
 * Fix for filenames with spaces. (Ramihajamalala Hery)
 
 == 2.1.0 release 2011-11-25
