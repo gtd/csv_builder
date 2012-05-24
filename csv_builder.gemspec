@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
     "README.md",
     "Rakefile",
     "VERSION",
-    "csv_streamer.gemspec",
+    "csv_builder.gemspec",
     "lib/csv_builder.rb",
     "lib/csv_builder/railtie.rb",
     "lib/csv_builder/template_handler.rb",
