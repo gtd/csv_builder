@@ -62,16 +62,24 @@ describe CsvBuilderReportsController do
 
   describe "Layout with options" do
     describe "output encoding" do
+      let(:expected_utf8) { generate({}, [['£12.34', 'ąčęėįšųūž', 'foo']]) }
+
+      if RUBY_VERSION.to_f < 1.9 && RUBY_PLATFORM.match(/darwin/)
+        # iconv appears to have more transliteration built into it on OSX than
+        # other platforms and so does a 'better' job of converting to ASCII
+        let(:expected_ascii) { generate({}, [['lb12.34' ,'aceeisuuz', 'foo']]) }
+      else
+        let(:expected_ascii) { generate({}, [['?12.34' ,'?????????', 'foo']]) }
+      end
+
       it "transliterates to ASCII when required" do
         get 'encoding', :format => 'csv', :encoding => 'ASCII'
-        correct_output = generate({}, [['aceeisuuz']])
-        response.body.to_s.should == correct_output
+        response.body.to_s.should == expected_ascii
       end
 
       it "keeps output in UTF-8 when required" do
         get 'encoding', :format => 'csv', :encoding => 'UTF-8'
-        correct_output = generate({}, [['ąčęėįšųūž']])
-        response.body.to_s.should == correct_output
+        response.body.to_s.should == expected_utf8
       end
     end
 
