@@ -49,7 +49,7 @@ Gem::Specification.new do |s|
   s.homepage = %q{http://github.com/dasil003/csv_builder}
   s.licenses = [%q{MIT}]
   s.require_paths = [%q{lib}]
-  s.requirements = [%q{iconv}, %q{Ruby 1.9.x or FasterCSV}]
+  s.requirements = [%q{iconv}]
   s.rubygems_version = %q{1.8.6}
   s.summary = %q{CSV template handler for Rails}
 
@@ -58,6 +58,7 @@ Gem::Specification.new do |s|
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<actionpack>, [">= 3.0.0"])
+      s.add_runtime_dependency('fastercsv') if RUBY_VERSION.to_f < 1.9
       s.add_development_dependency(%q<rails>, [">= 3.0.0"])
       s.add_development_dependency(%q<rspec>, ["~> 2.5"])
       s.add_development_dependency(%q<rspec-rails>, ["~> 2.5"])
@@ -65,6 +66,7 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<sqlite3>, [">= 0"])
     else
       s.add_dependency(%q<actionpack>, [">= 3.0.0"])
+      s.add_dependency('fastercsv') if RUBY_VERSION.to_f < 1.9
       s.add_dependency(%q<rails>, [">= 3.0.0"])
       s.add_dependency(%q<rspec>, ["~> 2.5"])
       s.add_dependency(%q<rspec-rails>, ["~> 2.5"])
@@ -73,6 +75,7 @@ Gem::Specification.new do |s|
     end
   else
     s.add_dependency(%q<actionpack>, [">= 3.0.0"])
+    s.add_dependency('fastercsv') if RUBY_VERSION.to_f < 1.9
     s.add_dependency(%q<rails>, [">= 3.0.0"])
     s.add_dependency(%q<rspec>, ["~> 2.5"])
     s.add_dependency(%q<rspec-rails>, ["~> 2.5"])
