@@ -2,7 +2,7 @@
 
 class CsvBuilder::TransliteratingFilter
   # Transliterate into the required encoding if necessary
-  def initialize(csv, input_encoding = 'UTF-8', output_encoding = 'LATIN1')
+  def initialize(csv, input_encoding = 'UTF-8', output_encoding = 'ISO-8859-1')
     self.csv = csv
 
     # TODO: do some checking to make sure iconv works correctly in

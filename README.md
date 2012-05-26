@@ -49,7 +49,7 @@ your controller's action method e.g.
     @filename = 'report.csv'
 
 You can set the input encoding and output encoding by setting `@input_encoding` and `@output_encoding` instance
-variables.  These default to 'UTF-8' and 'LATIN1' respectively. e.g.
+variables.  These default to 'UTF-8' and 'ISO-8859-1' respectively. e.g.
 
     @output_encoding = 'UTF-8'
 
