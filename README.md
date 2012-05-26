@@ -26,8 +26,6 @@ docs](https://github.com/econsultancy/csv_builder) for more details.
 ### Install as a gem (recommended)
 
     $ gem install csv_builder
-_or for streaming_
-	$ gem install csv_streamer 
 
 If you are using Bundler then [you know what to do](http://gembundler.com).
 
@@ -60,8 +58,8 @@ You can set `@csv_options` instance variable to define options for FasterCSV gen
     @csv_options = { :force_quotes => true, :col_sep => ';' }
 
 You can optionally stream your results line by line as they are generated. Results will stream if the underlying Rack server supports streaming, otherwise the results will be buffered and sent when the template finishes rendering. Just set `@streaming` to true:
-	
-	@streaming = true 
+
+    @streaming = true
 
 You can respond with csv in your controller as well:
 
@@ -79,6 +77,7 @@ including a snippet like the following in your mailer method
     end
 
 ## Streaming Support
+
 Many csv files are quite large, and need to be streamed rather than return in a single shot. Csv stream handling is based on [an epic answer on stackoverflow about rails and streaming.](http://stackoverflow.com/questions/3507594/ruby-on-rails-3-streaming-data-through-rails-to-client). Streaming requires configuration of your rails app - you need to use a Rack that supports streaming. I've tested with Unicorn, and created [a separate sample](https://github.com/fawce/test_csv_streamer) project to facilitate testing on Heroku. 
 
 
