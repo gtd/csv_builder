@@ -1,3 +1,8 @@
+== 2.1.1 release 2012-07-15
+
+* Fix deprecation warning in 1.9 by removing iconv dependency (Joel Chippendale)
+* Change name of default output encoding for 1.9 encoding support (Joel Chippendale)
+* Add Gemfile for development (Joel Chippendale)
 * Fix for IE under SSL (tkiley)
 * Fix for filenames with spaces. (Ramihajamalala Hery)
 
