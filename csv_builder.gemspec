@@ -22,30 +22,7 @@ Gem::Specification.new do |s|
     "lib/csv_builder/railtie.rb",
     "lib/csv_builder/template_handler.rb",
     "lib/csv_builder/transliterating_filter.rb",
-    "rails/init.rb",
-    "spec/controllers/csv_builder_spec.rb",
-    "spec/rails_app/.gitignore",
-    "spec/rails_app/Gemfile",
-    "spec/rails_app/README",
-    "spec/rails_app/app/controllers/application_controller.rb",
-    "spec/rails_app/app/helpers/application_helper.rb",
-    "spec/rails_app/app/views/layouts/application.html.erb",
-    "spec/rails_app/config.ru",
-    "spec/rails_app/config/application.rb",
-    "spec/rails_app/config/boot.rb",
-    "spec/rails_app/config/database.yml",
-    "spec/rails_app/config/environment.rb",
-    "spec/rails_app/config/environments/development.rb",
-    "spec/rails_app/config/environments/production.rb",
-    "spec/rails_app/config/environments/test.rb",
-    "spec/rails_app/config/routes.rb",
-    "spec/rails_app/db/seeds.rb",
-    "spec/spec_helper.rb",
-    "spec/templates/csv_builder_reports/complex.csv.csvbuilder",
-    "spec/templates/csv_builder_reports/encoding.csv.csvbuilder",
-    "spec/templates/csv_builder_reports/massive.csv.csvbuilder",
-    "spec/templates/csv_builder_reports/simple.csv.csvbuilder",
-    "spec/templates/csv_builder_reports/simple.html.erb"
+    "rails/init.rb"
   ]
   s.homepage = %q{http://github.com/dasil003/csv_builder}
   s.licenses = [%q{MIT}]
