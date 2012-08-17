@@ -24,7 +24,7 @@ Gem::Specification.new do |s|
     "lib/csv_builder/transliterating_filter.rb",
     "rails/init.rb"
   ]
-  s.homepage = %q{http://github.com/dasil003/csv_builder}
+  s.homepage = %q{http://github.com/gtd/csv_builder}
   s.licenses = [%q{MIT}]
   s.require_paths = [%q{lib}]
   s.requirements = [%q{iconv or Ruby 1.9}]
