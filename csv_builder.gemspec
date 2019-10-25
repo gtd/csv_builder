@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = %q{csv_builder}
-  s.version = "2.1.1"
+  s.version = "2.1.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = [%q{Econsultancy}, %q{Vidmantas Kabosis}, %q{Gabe da Silveira}]
@@ -24,7 +24,7 @@ Gem::Specification.new do |s|
     "lib/csv_builder/transliterating_filter.rb",
     "rails/init.rb"
   ]
-  s.homepage = %q{http://github.com/gtd/csv_builder}
+  s.homepage = %q{https://github.com/gtd/csv_builder}
   s.licenses = [%q{MIT}]
   s.require_paths = [%q{lib}]
   s.requirements = [%q{iconv or Ruby 1.9}]
