@@ -88,7 +88,8 @@ module CsvBuilder # :nodoc:
   end
 
   class TemplateHandler
-    def self.call(template)
+    def self.call(template, source = nil)
+      source ||= template.source
 
       <<-EOV
       begin
@@ -110,13 +111,13 @@ module CsvBuilder # :nodoc:
 
         if @streaming
           template = Proc.new {|csv|
-            #{template.source}
+            #{source}
           }
           CsvBuilder::Streamer.new(template)
         else
           output = CsvBuilder::CSV_LIB.generate(@csv_options || {}) do |faster_csv|
             csv = CsvBuilder::TransliteratingFilter.new(faster_csv, @input_encoding || 'UTF-8', @output_encoding || 'ISO-8859-1')
-            #{template.source}
+            #{source}
           end
           output
         end
