@@ -115,7 +115,7 @@ module CsvBuilder # :nodoc:
           }
           CsvBuilder::Streamer.new(template)
         else
-          output = CsvBuilder::CSV_LIB.generate(@csv_options || {}) do |faster_csv|
+          output = CsvBuilder::CSV_LIB.generate(**(@csv_options || {})) do |faster_csv|
             csv = CsvBuilder::TransliteratingFilter.new(faster_csv, @input_encoding || 'UTF-8', @output_encoding || 'ISO-8859-1')
             #{source}
           end
