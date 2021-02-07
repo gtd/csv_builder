@@ -37,4 +37,7 @@ Gem::Specification.new do |s|
 
   # Rails 5 dependencies
   s.add_development_dependency(%q<bootsnap>, [">= 1.1.0"])
+
+  # Ruby 2.6+ dependencies
+  s.add_development_dependency(%q<sprockets>, [">= 0", "< 4.0"])
 end
