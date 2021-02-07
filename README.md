@@ -1,8 +1,3 @@
-**Important Note** Though I did not write this code, I did convert it to a gem and I'm currently the sole owner on
-rubygems.  With Joel Chippindale's approval I've taken over defacto maintainership of this gem.  My use case is
-primarily under rails 3, and the current version is not backwards compatible, but I will maintain a 2.3.x branch as well
-if anyone has patches.
-
 # CSV Builder
 
 The CSV Builder Rails plugin provides a simple templating system for serving dynamically generated CSV files from your
@@ -10,11 +5,14 @@ application.
 
 ## Requirements
 
-The current version of CSV Builder works with:
+The current version of CSV Builder is tested with:
 
-* Rails 3.x
-* Ruby 1.8 or 1.9
-* Unicorn _is required for streaming_ see [the example streaming app](https://github.com/fawce/test_csv_streamer) for more details.
+* Rails 4.2.x, 5.2.x, 6.1.x
+* Ruby 2.5.x, 2.6.x, 2.7.x
+
+It should be compatible for all ruby >= 2.0 and rails >= 3.0 (not all combos tested)
+
+For ruby 1.8 and 1.9, use version 2.1.2.
 
 The legacy version (1.1.x) was originally developed and tested for Rails 2.1.  See [the legacy
 docs](https://github.com/econsultancy/csv_builder) for more details.
@@ -78,7 +76,7 @@ including a snippet like the following in your mailer method
 
 ## Streaming Support
 
-Many csv files are quite large, and need to be streamed rather than return in a single shot. Csv stream handling is based on [an epic answer on stackoverflow about rails and streaming.](http://stackoverflow.com/questions/3507594/ruby-on-rails-3-streaming-data-through-rails-to-client). Streaming requires configuration of your rails app - you need to use a Rack that supports streaming. I've tested with Unicorn, and created [a separate sample](https://github.com/fawce/test_csv_streamer) project to facilitate testing on Heroku. 
+Many csv files are quite large, and need to be streamed rather than return in a single shot. Csv stream handling is based on [an epic answer on stackoverflow about rails and streaming.](http://stackoverflow.com/questions/3507594/ruby-on-rails-3-streaming-data-through-rails-to-client). Streaming requires configuration of your rails app - you need to use a Rack that supports streaming. I've tested with Unicorn, and created [a separate sample](https://github.com/fawce/test_csv_streamer) project to facilitate testing on Heroku. (ed: *this note is very old and streaming support has not been updated lately*)
 
 
 ## Contributions
