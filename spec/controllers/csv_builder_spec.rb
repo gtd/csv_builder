@@ -3,7 +3,7 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 class CsvBuilderReportsController < ApplicationController
-  before_filter {|c| c.prepend_view_path(File.expand_path(File.dirname(__FILE__) + '/../templates')) }
+  before_action {|c| c.prepend_view_path(File.expand_path(File.dirname(__FILE__) + '/../templates')) }
 
   def simple
     # dummy
@@ -73,12 +73,12 @@ describe CsvBuilderReportsController, type: :controller do
       end
 
       it "transliterates to ASCII when required" do
-        get 'encoding', :format => 'csv', :encoding => 'ASCII'
+        get 'encoding', params: {format: 'csv', encoding: 'ASCII'}
         expect(response.body.to_s).to eq(expected_ascii)
       end
 
       it "keeps output in UTF-8 when required" do
-        get 'encoding', :format => 'csv', :encoding => 'UTF-8'
+        get 'encoding', params: {format: 'csv', encoding: 'UTF-8'}
         expect(response.body.to_s).to eq(expected_utf8)
       end
     end

@@ -29,7 +29,7 @@ Gem::Specification.new do |s|
   s.required_ruby_version = '>= 2.0'
 
   s.add_runtime_dependency(%q<actionpack>, [">= 3.0.0"])
-  s.add_development_dependency(%q<rails>, [">= 4.0.0", "< 5.0"])
+  s.add_development_dependency(%q<rails>, [">= 5.0.0", "< 6.0"])
   s.add_development_dependency(%q<rspec>, ["~> 3.0"])
   s.add_development_dependency(%q<rspec-rails>, ["~> 3.0"])
   s.add_development_dependency(%q<rack>, [">= 0"])
