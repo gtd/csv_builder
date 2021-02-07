@@ -38,10 +38,11 @@ class CsvBuilderReportsController < ApplicationController
 
 end
 
-if defined?(Rails) and Rails.version < '3'
-  ActionController::Routing::Routes.draw { |map| map.connect ':controller/:action' }
-else
-  Rails.application.routes.draw { get ':controller/:action' }
+Rails.application.routes.draw do
+  get 'csv_builder_reports/simple', to: 'csv_builder_reports#simple'
+  get 'csv_builder_reports/complex', to: 'csv_builder_reports#complex'
+  get 'csv_builder_reports/encoding', to: 'csv_builder_reports#encoding'
+  get 'csv_builder_reports/massive', to: 'csv_builder_reports#massive'
 end
 
 
