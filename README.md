@@ -3,6 +3,8 @@
 The CSV Builder Rails plugin provides a simple templating system for serving dynamically generated CSV files from your
 application.
 
+![Ruby](https://github.com/gtd/csv_builder/workflows/Ruby/badge.svg)
+
 ## Requirements
 
 The current version of CSV Builder is tested with:
