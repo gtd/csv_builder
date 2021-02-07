@@ -52,12 +52,12 @@ describe CsvBuilderReportsController, type: :controller do
   describe "Simple layout" do
     it "still responds to HTML" do
       get 'simple'
-      expect(response).to be_success
+      expect(response).to have_http_status(:success)
     end
 
     it "responds to CSV" do
       get 'simple', :format => 'csv'
-      expect(response).to be_success
+      expect(response).to have_http_status(:success)
     end
   end
 
