@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 ENV["RAILS_ENV"] ||= 'test'
-rails_root = File.expand_path('../rails_app_5_2', __FILE__)
+rails_root = File.expand_path('../rails_app_6_1', __FILE__)
 require rails_root + '/config/environment.rb'
 
 require 'rspec/rails'
