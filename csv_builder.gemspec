@@ -37,11 +37,11 @@ Gem::Specification.new do |s|
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<actionpack>, [">= 3.0.0"])
       s.add_runtime_dependency('fastercsv') if RUBY_VERSION.to_f < 1.9
-      s.add_development_dependency(%q<rails>, [">= 3.0.0"])
+      s.add_development_dependency(%q<rails>, [">= 4.0.0", "< 5.0"])
       s.add_development_dependency(%q<rspec>, ["~> 2.5"])
       s.add_development_dependency(%q<rspec-rails>, ["~> 2.5"])
       s.add_development_dependency(%q<rack>, [">= 0"])
-      s.add_development_dependency(%q<sqlite3>, [">= 0"])
+      s.add_development_dependency(%q<sqlite3>, [">= 0", "< 1.4"])
     else
       s.add_dependency(%q<actionpack>, [">= 3.0.0"])
       s.add_dependency('fastercsv') if RUBY_VERSION.to_f < 1.9

@@ -38,5 +38,7 @@ module RailsApp
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
+
+    config.eager_load = false
   end
 end
