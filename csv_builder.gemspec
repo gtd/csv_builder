@@ -33,7 +33,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency(%q<rspec>, ["~> 3.0"])
   s.add_development_dependency(%q<rspec-rails>, ["~> 3.0"])
   s.add_development_dependency(%q<rack>, [">= 0"])
-  s.add_development_dependency(%q<sqlite3>, [">= 0", "< 1.4"])
+  s.add_development_dependency(%q<sqlite3>, [">= 0"])
 
   # Rails 5 dependencies
   s.add_development_dependency(%q<bootsnap>, [">= 1.1.0"])
