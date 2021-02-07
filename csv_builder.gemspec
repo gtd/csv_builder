@@ -30,8 +30,8 @@ Gem::Specification.new do |s|
 
   s.add_runtime_dependency(%q<actionpack>, [">= 3.0.0"])
   s.add_development_dependency(%q<rails>, [">= 4.0.0", "< 5.0"])
-  s.add_development_dependency(%q<rspec>, ["~> 2.5"])
-  s.add_development_dependency(%q<rspec-rails>, ["~> 2.5"])
+  s.add_development_dependency(%q<rspec>, ["~> 3.0"])
+  s.add_development_dependency(%q<rspec-rails>, ["~> 3.0"])
   s.add_development_dependency(%q<rack>, [">= 0"])
   s.add_development_dependency(%q<sqlite3>, [">= 0", "< 1.4"])
 end

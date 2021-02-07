@@ -45,18 +45,18 @@ else
 end
 
 
-describe CsvBuilderReportsController do
+describe CsvBuilderReportsController, type: :controller do
   render_views
 
   describe "Simple layout" do
     it "still responds to HTML" do
       get 'simple'
-      response.should be_success
+      expect(response).to be_success
     end
 
     it "responds to CSV" do
       get 'simple', :format => 'csv'
-      response.should be_success
+      expect(response).to be_success
     end
   end
 
@@ -74,30 +74,30 @@ describe CsvBuilderReportsController do
 
       it "transliterates to ASCII when required" do
         get 'encoding', :format => 'csv', :encoding => 'ASCII'
-        response.body.to_s.should == expected_ascii
+        expect(response.body.to_s).to eq(expected_ascii)
       end
 
       it "keeps output in UTF-8 when required" do
         get 'encoding', :format => 'csv', :encoding => 'UTF-8'
-        response.body.to_s.should == expected_utf8
+        expect(response.body.to_s).to eq(expected_utf8)
       end
     end
 
     it "passes csv options" do
       get 'complex', :format => 'csv'
-      response.body.to_s.should == generate({ :col_sep => "\t" })
+      expect(response.body.to_s).to eq(generate(col_sep: "\t" ))
     end
 
     it "sets filename" do
       get 'complex', :format => 'csv'
-      response.headers['Content-Disposition'].should match(/filename="some_complex_filename.csv"/)
+      expect(response.headers['Content-Disposition']).to match(/filename="some_complex_filename.csv"/)
     end
 
     #TODO: unfortunately, this test only verifies that streaming will behave like single-shot response, because rspec's testresponse doesn't
     #support streaming. Streaming has to be manually verified with a browser and stand-alone test application. see https://github.com/fawce/test_csv_streamer
     it "handles very large downloads without timing out" do
       get 'massive', :format => 'csv'
-      response.body.to_s.length.should == 24890
+      expect(response.body.to_s.length).to eq(24890)
     end
   end
 end
