@@ -7,7 +7,7 @@ application.
 
 ## Requirements
 
-The current version of CSV Builder is tested with:
+The current version of CSV Builder has been tested (manually at least, not all via CI) with:
 
 * Rails 4.2.x, 5.2.x, 6.1.x
 * Ruby 2.5.x, 2.6.x, 2.7.x
