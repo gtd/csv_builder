@@ -81,20 +81,19 @@ including a snippet like the following in your mailer method
 Many csv files are quite large, and need to be streamed rather than return in a single shot. Csv stream handling is based on [an epic answer on stackoverflow about rails and streaming.](http://stackoverflow.com/questions/3507594/ruby-on-rails-3-streaming-data-through-rails-to-client). Streaming requires configuration of your rails app - you need to use a Rack that supports streaming. I've tested with Unicorn, and created [a separate sample](https://github.com/fawce/test_csv_streamer) project to facilitate testing on Heroku. (ed: *this note is very old and streaming support has not been updated lately*)
 
 
-## Contributions
+## Testing
 
-As of version 2.0 this gem has a rudimentary spec suite for Rails 3.  The test suite has been run under both Ruby 1.8
-and 1.9.  The requirements are in the Gemfile within the test spec directory.  You will need Bundler installed and then
-you can run:
+The test harness here is a little unusual in that it wires in a standard rails app and then monkeypatches it in the
+specs.  Because there is a standard rails app, it has its own Gemfile which is modified to refer back to the gemspec so
+that you can use the standard workflow:
 
-    cd spec/rails_app && bundle install && cd ../..
+     bundle install && rake spec
 
-To install the main testing requirements.  Then return back to the root directory and run:
+Note that this means there are multiple `Gemfile.lock` files generated.  Per gem development best practices, those files
+are not committed, and it can be easy to forget to remove all of them when you want to try a clean build after updating
+some dependency.  Suggestion is to do:
 
-    rake spec
-
-I will also take patches for Rails 2.3.x, though I personally have no further need of that branch.
-
+     rm ./**/Gemfile.lock && bundle install && rake spec
 
 ## Troubleshooting
 
