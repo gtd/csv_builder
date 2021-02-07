@@ -5,6 +5,11 @@ on: [push, pull_request]
 jobs:
   test:
 
+    strategy:
+      fail-fast: false
+      matrix:
+        ruby: [2.5, 2.6, 2.7]
+
     runs-on: ubuntu-latest
 
     steps:
@@ -12,7 +17,7 @@ jobs:
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: 2.6
+        ruby-version: ${{ matrix.ruby }}
     - name: Install dependencies
       run: bundle install
     - name: Run tests
